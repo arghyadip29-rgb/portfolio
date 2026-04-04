@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, ReactNode } from "react";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 
 const FRAME_COUNT = 40;
 
@@ -21,7 +21,7 @@ export default function ScrollyCanvas({ children }: CanvasSequenceProps) {
   const drawImageCover = (ctx: CanvasRenderingContext2D, img: HTMLImageElement, w: number, h: number) => {
     const imgRatio = img.width / img.height;
     const canvasRatio = w / h;
-    let renderW, renderH, x, y;
+    let renderW, renderH;
 
     if (imgRatio < canvasRatio) {
       renderW = w;
@@ -30,8 +30,8 @@ export default function ScrollyCanvas({ children }: CanvasSequenceProps) {
       renderW = h * imgRatio;
       renderH = h;
     }
-    x = (w - renderW) / 2;
-    y = (h - renderH) / 2;
+    const x = (w - renderW) / 2;
+    const y = (h - renderH) / 2;
     ctx.drawImage(img, x, y, renderW, renderH);
   };
 
