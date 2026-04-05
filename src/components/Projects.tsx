@@ -6,19 +6,16 @@ import Image from "next/image";
 export default function Projects() {
   const projects = [
     { 
-      title: "Project Alpha", 
-      desc: "A creative coding experiment using WebGL and advanced shaders.",
-      image: "/projects/alpha.png"
+      title: "Portfolio Website", 
+      desc: "Designed and deployed a responsive portfolio website to showcase projects and skills. Built using Next.js and hosted on Vercel.",
+      image: "/projects/alpha.png", // Fallback placeholder
+      link: "https://portfolio-dntc.vercel.app/"
     },
     { 
-      title: "Project Beta", 
-      desc: "Award-winning e-commerce experience with minimalist glassmorphism.",
-      image: "/projects/beta.png"
-    },
-    { 
-      title: "Project Gamma", 
-      desc: "Interactive data visualization dashboard with cyberpunk neon aesthetics.",
-      image: "/projects/gamma.png"
+      title: "AI SmartBoat PavitraX", 
+      desc: "Smart India Hackathon 2025. Developed a waste segregation system using image processing with a TACO YOLOv8n model trained by our team.",
+      image: "/projects/beta.png", // Fallback placeholder
+      link: "#"
     }
   ];
 
@@ -37,13 +34,16 @@ export default function Projects() {
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {projects.map((proj, idx) => (
-            <motion.div 
+            <motion.a 
               key={idx}
+              href={proj.link}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.6, delay: idx * 0.2 }}
-              className="relative bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-3xl p-6 hover:bg-white/[0.08] hover:border-white/20 transition-all duration-500 cursor-pointer group shadow-2xl hover:shadow-[0_0_40px_rgba(227,242,69,0.15)] flex flex-col"
+              className="relative block bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-3xl p-6 hover:bg-white/[0.08] hover:border-white/20 transition-all duration-500 cursor-pointer group shadow-2xl hover:shadow-[0_0_40px_rgba(227,242,69,0.15)] flex-col flex"
             >
               <div className="w-full relative aspect-video bg-black/50 rounded-2xl mb-8 overflow-hidden">
                 <Image
@@ -73,7 +73,7 @@ export default function Projects() {
                   </motion.svg>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

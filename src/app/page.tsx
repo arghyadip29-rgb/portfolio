@@ -2,6 +2,10 @@ import ScrollyCanvas from "@/components/ScrollyCanvas";
 import Overlay from "@/components/Overlay";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
+import Skills from "@/components/Skills";
+import Experience from "@/components/Experience";
+import Education from "@/components/Education";
+import Certifications from "@/components/Certifications";
 
 export default function Home() {
   return (
@@ -13,7 +17,11 @@ export default function Home() {
       </ScrollyCanvas>
 
       {/* Standard flow sections below */}
+      <Skills />
+      <Experience />
+      <Education />
       <Projects />
+      <Certifications />
       <Footer />
       
     </main>
